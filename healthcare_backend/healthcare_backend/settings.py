@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     # Add your apps here
-    # 'api',
+    'api',
 ]
 
 MIDDLEWARE = [
