@@ -32,6 +32,9 @@ class User(AbstractUser):
 
     objects = UserManager()
 
+    class Meta:
+        app_label = 'api'  # Added app_label
+
     def __str__(self):
         return self.email
 
@@ -43,6 +46,9 @@ class Patient(models.Model):
     medical_history = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        app_label = 'api'  # Added app_label
 
     def __str__(self):
         return self.name
@@ -56,6 +62,9 @@ class Doctor(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        app_label = 'api'  # Added app_label
+
     def __str__(self):
         return f"Dr. {self.name} - {self.specialization}"
 
@@ -66,6 +75,7 @@ class PatientDoctorMapping(models.Model):
     assigned_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        app_label = 'api'  # Added app_label
         unique_together = ('patient', 'doctor')
 
     def __str__(self):
